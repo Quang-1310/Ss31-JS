@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label{
+            display: block;
+            margin-bottom: 5px;
+        }
+        input{
+            margin-bottom: 10px;
+        }
+        button{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="">username:</label>
+        <input id="inputuser" type="text">
+        <label for="">password:</label>
+        <input id="inputpassword" type="password">
+        <button id="login">login</button>
+    </form>
+
+    <script>
+        let username = "huanrose@gmail.com";
+        let password = "123456";
+        let inputValueUser;
+        let inputValuePassword;
+        let inputElementUser = document.querySelector("#inputuser");
+        let inputElementUPassword = document.querySelector("#inputpassword");
+        let enter = document.querySelector("#login");
+
+        inputElementUser.addEventListener("input",function(event){
+            inputValueUser = event.target.value;
+        });
+
+        inputElementUPassword.addEventListener("input",function(event){
+            inputValuePassword = event.target.value;
+        });
+
+        enter.addEventListener("click", function(event){
+            event.preventDefault();
+            if(inputValueUser === username && inputValuePassword === password){
+                console.log("Thành công");
+            }
+            else{
+                console.log("Thất bại");
+            }
+        })
+
+
+    </script>
+</body>
+</html>

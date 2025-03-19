@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+    <script>
+        const employees = [
+            {
+                id: 1,
+                name: "Example 1",
+                age: 18,
+                address: "District",
+            },
+            {
+                id: 2,
+                name: "Example 2",
+                age: 20,
+                address: "Hà Nội",
+            },
+        ];
+            function render(){
+                let tbody = document.querySelector("#table tbody");
+                employees.forEach((value) => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.age}</td>
+                    <td>${value.address}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            };
+            render();
+    </script>
+</body>
+</html>

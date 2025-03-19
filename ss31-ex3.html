@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #color1{
+            background-color: greenyellow;
+            border: 1px solid white;
+            padding: 20px;
+        }
+        #color2{
+            background-color: red;
+            border: 1px solid white;
+            padding: 20px;
+        }
+        #color3{
+            background-color: pink;
+            border: 1px solid white;
+            padding: 20px;
+        }
+        #bg {
+            border: 1px solid black;
+            width: fit-content;
+            padding-right: 50px;
+            padding-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bg">
+
+        <span>change background-color</span>
+        <br>
+        <span>Mouse click</span>
+        <div>
+            <button id="color1">xanh</button>
+            <button id="color2">do</button>
+            <button id="color3">tím</button>
+        </div>
+    </div>
+    <script>
+        const btn1 = document.querySelector("#color1");
+        const btn2 = document.querySelector("#color2");
+        const btn3 = document.querySelector("#color3");
+        const bg = document.querySelector('#bg');
+        btn1.addEventListener("click", function () {
+            bg.style.background = 'greenyellow';
+        });
+        btn2.addEventListener("click", function () {
+            bg.style.background = 'red';
+        });
+        btn3.addEventListener("click", function () {
+            bg.style.background = 'pink';
+        });
+    </script>
+</body>
+</html>

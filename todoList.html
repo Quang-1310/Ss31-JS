@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TodoList</h1>
+    <div>
+        <form id="form">
+            <input type="text" id="job-name"/>
+            <button type="submit" id="btn-submit">Submit</button>
+        </form>
+        <span id="error"></span>
+    </div>
+    <ul id="list-job">
+        <!-- <li>Quét nhà</li>
+        <li>Giặt quần áo</li>
+        <li>Chơi game</li> -->
+    </ul>
+
+    <script>
+        //Lấy ra tất cả các elenment
+        const formElement = document.querySelector("#form");
+        const inputElement = document.querySelector("#job-name");
+        const btnElement = document.querySelector("#btn-submit");
+        const errorElement = document.querySelector("#error");
+        const listJobElement = document.querySelector("#list-job");
+        let inputValue;
+        let jobs = [];
+        function renderJob () {
+            listJobElement.textContent = "";
+            jobs.forEach((job, index) => {
+                // Tạo ra 1 element là thẻ li
+                const liElement = document.createElement("li");
+
+                // Gán nội dung cho từng thẻ li
+                liElement.textContent = job.name;
+
+                // Gán thẻ li này làm con của ul
+                listJobElement.appendChild(liElement)
+            })
+        };
+
+        //Lấy giá trị trong ô input
+        inputElement.addEventListener("input", function(event){
+            if(!event.target.value){
+                errorElement.style.display = "block";
+
+                //Thay đổi nội dung lỗi
+                errorElement.textContent = "Tên công việc không được để trống"
+            }
+            else{
+                // Khi có giá trị thì ẩn lõi và gán giá trị lấy từ input
+                errorElement.style.display = "none";
+
+                //Gán giá trị cho biến
+                inputValue = event.target.value
+            }
+            // console.log(event.target.value);
+        });
+
+        //Submit form
+        formElement.addEventListener("submit", function(event){
+            //Ngăn chặn sự kiện mặc định của form (Load lại trang)
+            event.preventDefault();
+
+            //Thêm công việc vào trong mảng
+            if(inputValue){
+                const newJob = {
+                    id : Math.ceil(Math.random() * 10000000),
+                    name : inputValue,
+                    status : false
+                };
+            jobs.push(newJob);
+
+            inputElement.value = "";
+
+            // Gọi đến hàm render để tải lại dữ liệu mới nhất
+            renderJob();
+            alert("Thêm công việc thành công");
+            }
+
+        });
+    </script>
+</body>
+</html>
